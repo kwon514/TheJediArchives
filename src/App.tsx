@@ -13,37 +13,27 @@ function App() {
 
   return (
     <div>
-            <div className="search-field">
-        <h1>Pokédex Search</h1>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <TextField
-            id="search-bar"
-            className="text"
-            value={characterName}
-            onChange={(prop) => {
-              setCharacterName(prop.target.value);
-            }}
-            label="Enter a Character Name..."
-            variant="outlined"
-            placeholder="Search..."
-            size="medium"
-          />
-          <Button
-            onClick={() => {
-              search();
-            }}
-          >
-            <SearchIcon style={{ fill: "blue" }} />
+      <div id="navbar">
+        <h1 id="header">The Jedi Archives</h1>
+      </div>
+
+      <div id="search-field">
+        <div id="text-box">
+          <TextField id="search-bar" className="text" value={characterName} onChange={(prop) => { setCharacterName(prop.target.value); }} label="Enter a Character Name..." variant="outlined" placeholder="Search..." size="medium" />
+          <Button onClick={() => { search(); }}>
+            <SearchIcon style={{ fill: "blue" }}/>
             Search
           </Button>
         </div>
       </div>
 
-      {characterData === undefined || characterData === null? (
-        <p>Character not found.</p>
+      {characterData === undefined ? (
+        <div></div>
       ) : (
-        <div id="character-result">
-          <h1></h1>>
+        <div id="character-box">
+          <div className="character-info">
+            <h1>{characterData.results[0].name}</h1>
+          </div>
         </div>
       )}
     </div>
