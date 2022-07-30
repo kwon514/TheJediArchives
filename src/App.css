@@ -1,7 +1,3 @@
-html {
-  font-size: 100%;
-}
-
 #navbar {
   background-color: black;
   height: 4em;
@@ -19,28 +15,37 @@ html {
   font-size: 1.75em;
 }
 
-
 #search-field {
-  background-color: blue;
   justify-content: center;
   height: 5em;
 }
 
 #text-box {
+  display: flex;
+  justify-content: center;
   padding-top: 0.75em;
 }
 
-#text-box {
-  display: flex;
-  justify-content: center;
+#data-box {
+  min-width: 300px;
+  width: 40%;
+  margin: auto;
+  padding: 1em;
+  height: 35em;
 }
 
-#character-box {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 100px 10px 0px 10px;
+.box-header {
+  background-color: #f2f2f2;
+  border-radius: 0.25em;
+  padding: 0.5em;
+  text-align: center;
 }
 
 .data {
-  font-size: 1.25em;
+  font-size: 1em;
+}
+
+table, th, td {
+  width: 60%;
+  min-width: 10em;
 }

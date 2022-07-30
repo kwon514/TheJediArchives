@@ -3,8 +3,7 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import "./App.css";
-import { Box, Button, Grid, Paper, Skeleton } from "@mui/material";
-import { red } from "@mui/material/colors";
+import { Box, Button, Grid, Paper } from "@mui/material";
 
 function App() {
   const [characterName, setCharacterName] = useState("");
@@ -31,31 +30,47 @@ function App() {
       {characterData === undefined ? (
         <div></div>
       ) : (
-        <div id="character-box">
-          <Paper sx={{ backgroundColor: red }}>
+        <div>
+          <Paper id="data-box">
             <Grid item>
               <Box>
-                {characterData === undefined || characterData === null ? (
-                  <h1> Character not found</h1>
+                {characterData.count === 0 || characterData === null ? (
+                  <h1 className="box-header"> Character not found</h1>
                 ) : (
                   <div>
-                    <h1>{characterData.results[0].name}</h1>
-                    <p className="data">
-                      Height: {(characterData.results[0].height) / 100} meters
-                      <br />
-                      Mass: {characterData.results[0].mass} kilograms
-                      <br />
-                      Hair Colour: {characterData.results[0].hair_color}
-                      <br />
-                      Skin Colour: {characterData.results[0].skin_color}
-                      <br />
-                      Eye Colour: {characterData.results[0].eye_color}
-                      <br />
-                      Birth Year: {characterData.results[0].birth_year}
-                      <br />
-                      Gender: {characterData.results[0].gender}
-                      <br />
-                    </p>
+                    <h1 className="box-header">{characterData.results[0].name}</h1>
+                    <table className="data">
+                      <tbody>
+                        <tr>
+                          <td>Height:</td>
+                          <td>{(characterData.results[0].height) / 100} meters</td>
+                        </tr>
+                        <tr>
+                          <td>Mass:</td>
+                          <td>{characterData.results[0].mass} kilograms</td>
+                        </tr>
+                        <tr>
+                          <td>Hair Colour:</td>
+                          <td>{characterData.results[0].hair_color}</td>
+                        </tr>
+                        <tr>
+                          <td>Skin Colour:</td>
+                          <td>{characterData.results[0].skin_color}</td>
+                        </tr>
+                        <tr>
+                          <td>Eye Colour:</td>
+                          <td>{characterData.results[0].eye_color}</td>
+                        </tr>
+                        <tr>
+                          <td>Birth Year:</td>
+                          <td>{characterData.results[0].birth_year}</td>
+                        </tr>
+                        <tr>
+                          <td>Gender:</td>
+                          <td>{characterData.results[0].gender}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 )}
               </Box>
@@ -67,9 +82,16 @@ function App() {
   );
 
   function search() {
+    if (characterName === undefined || characterName === "") {
+      return;
+    }
+
     axios.get(SWAPI_BASE_URL + "people/?search=" + characterName).then((res) => {
       setCharacterData(res.data);
-    });
+    })
+      .catch(() => {
+        setCharacterData(null);
+      });
   }
 }
 export default App;
