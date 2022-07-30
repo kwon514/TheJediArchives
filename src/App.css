@@ -27,25 +27,26 @@
 }
 
 #data-box {
-  min-width: 300px;
-  width: 40%;
+  max-width: 30%;
   margin: auto;
   padding: 1em;
-  height: 35em;
 }
 
 .box-header {
   background-color: #f2f2f2;
   border-radius: 0.25em;
   padding: 0.5em;
+  margin: 0 0 0.5em 0;
   text-align: center;
 }
 
 .data {
   font-size: 1em;
+  text-align: right;
 }
 
 table, th, td {
   width: 60%;
   min-width: 10em;
+  margin: auto;
 }

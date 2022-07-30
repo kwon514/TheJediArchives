@@ -39,35 +39,35 @@ function App() {
                 ) : (
                   <div>
                     <h1 className="box-header">{characterData.results[0].name}</h1>
-                    <table className="data">
+                    <table>
                       <tbody>
                         <tr>
                           <td>Height:</td>
-                          <td>{(characterData.results[0].height) / 100} meters</td>
+                          <td className="data">{(characterData.results[0].height) / 100} meters</td>
                         </tr>
                         <tr>
                           <td>Mass:</td>
-                          <td>{characterData.results[0].mass} kilograms</td>
+                          <td className="data">{characterData.results[0].mass} kilograms</td>
                         </tr>
                         <tr>
                           <td>Hair Colour:</td>
-                          <td>{toTitleCase(characterData.results[0].hair_color)}</td>
+                          <td className="data">{toTitleCase(characterData.results[0].hair_color)}</td>
                         </tr>
                         <tr>
                           <td>Skin Colour:</td>
-                          <td>{toTitleCase(characterData.results[0].skin_color)}</td>
+                          <td className="data">{toTitleCase(characterData.results[0].skin_color)}</td>
                         </tr>
                         <tr>
                           <td>Eye Colour:</td>
-                          <td>{toTitleCase(characterData.results[0].eye_color)}</td>
+                          <td className="data">{toTitleCase(characterData.results[0].eye_color)}</td>
                         </tr>
                         <tr>
                           <td>Birth Year:</td>
-                          <td>{characterData.results[0].birth_year}</td>
+                          <td className="data">{characterData.results[0].birth_year}</td>
                         </tr>
                         <tr>
                           <td>Gender:</td>
-                          <td>{toTitleCase(characterData.results[0].gender)}</td>
+                          <td className="data">{toTitleCase(characterData.results[0].gender)}</td>
                         </tr>
                       </tbody>
                     </table>
