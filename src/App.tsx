@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <div id="navbar">
-        <h1 id="header">The Jedi Archives</h1>
+        <a href="index.html"><h1 id="header">The Jedi Archives</h1></a>
       </div>
 
       <div id="search-field">
