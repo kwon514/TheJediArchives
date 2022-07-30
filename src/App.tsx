@@ -51,15 +51,15 @@ function App() {
                         </tr>
                         <tr>
                           <td>Hair Colour:</td>
-                          <td>{characterData.results[0].hair_color}</td>
+                          <td>{capitalizeFirstLetter(characterData.results[0].hair_color)}</td>
                         </tr>
                         <tr>
                           <td>Skin Colour:</td>
-                          <td>{characterData.results[0].skin_color}</td>
+                          <td>{capitalizeFirstLetter(characterData.results[0].skin_color)}</td>
                         </tr>
                         <tr>
                           <td>Eye Colour:</td>
-                          <td>{characterData.results[0].eye_color}</td>
+                          <td>{capitalizeFirstLetter(characterData.results[0].eye_color)}</td>
                         </tr>
                         <tr>
                           <td>Birth Year:</td>
@@ -67,7 +67,7 @@ function App() {
                         </tr>
                         <tr>
                           <td>Gender:</td>
-                          <td>{characterData.results[0].gender}</td>
+                          <td>{capitalizeFirstLetter(characterData.results[0].gender)}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -92,6 +92,12 @@ function App() {
       .catch(() => {
         setCharacterData(null);
       });
+  }
+  function capitalizeFirstLetter(string: string) {
+    if (string === "n/a") {
+      return "N/A";
+    }
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 }
 export default App;
