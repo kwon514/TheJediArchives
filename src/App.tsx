@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import "./App.css";
 import { Box, Button, Grid, Paper } from "@mui/material";
+import { motion } from "framer-motion";
 
 function App() {
   const [characterName, setCharacterName] = useState("");
@@ -14,23 +15,29 @@ function App() {
   return (
     <div>
       <div id="navbar">
-        <a href="index.html"><h1 id="header">The Jedi Archives</h1></a>
+        <a href="index.html"><motion.h1 id="header" whileTap={{ scale: 0.95 }} initial={{ x: -1000 }} animate={{ x: 0 }} transition={{ duration: 0.3 }}>The Jedi Archives</motion.h1></a>
       </div>
 
-      <div id="search-field">
+      <motion.div id="search-field"
+        initial={{ x: -1000 }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.4, duration: 0.3 }}>
         <div id="text-box">
-          <TextField id="search-bar" className="text" value={characterName} onChange={(prop) => { setCharacterName(prop.target.value); }} label="Enter a Character Name..." variant="outlined" placeholder="Search..." size="medium" />
+          <TextField id="search-bar" className="text" value={characterName} onKeyDown={event => handleKeyDown(event)} onChange={(prop) => { setCharacterName(prop.target.value); }} label="Enter a Character Name..." variant="outlined" placeholder="Search..." size="medium" />
           <Button onClick={() => { search(); }}>
             <SearchIcon style={{ fill: "blue" }} />
             Search
           </Button>
         </div>
-      </div>
+      </motion.div>
 
       {characterData === undefined ? (
         <div></div>
       ) : (
-        <div>
+        <motion.div
+          initial={{ scale: 1, opacity: 0, x: -1000 }}
+          animate={{ scale: 1, opacity: 100, x: 0 }}
+          transition={{ duration: 0.2 }}>
           <Paper id="data-box">
             <Grid item>
               <Box>
@@ -76,7 +83,7 @@ function App() {
               </Box>
             </Grid>
           </Paper>
-        </div>
+        </motion.div>
       )}
     </div>
   );
@@ -97,9 +104,15 @@ function App() {
     if (str == "n/a") {
       return "N/A";
     }
-    return str.toLowerCase().split(' ').map(function(word) {
+    return str.toLowerCase().split(' ').map(function (word) {
       return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
   }
+
+  function handleKeyDown(event: any) {
+    if (event.key === "Enter") {
+      search();
+    }
+  }
 }
-export default App;
+  export default App;
