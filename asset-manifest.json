@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/thejediarchives/static/css/main.3fcae9cb.css",
-    "main.js": "/thejediarchives/static/js/main.fb0ea6f1.js",
+    "main.js": "/thejediarchives/static/js/main.1bf097cc.js",
     "static/js/787.4cd807be.chunk.js": "/thejediarchives/static/js/787.4cd807be.chunk.js",
     "static/media/starry-background.webp": "/thejediarchives/static/media/starry-background.f4bbefb68d6dedae69ab.webp",
     "index.html": "/thejediarchives/index.html",
     "main.3fcae9cb.css.map": "/thejediarchives/static/css/main.3fcae9cb.css.map",
-    "main.fb0ea6f1.js.map": "/thejediarchives/static/js/main.fb0ea6f1.js.map",
+    "main.1bf097cc.js.map": "/thejediarchives/static/js/main.1bf097cc.js.map",
     "787.4cd807be.chunk.js.map": "/thejediarchives/static/js/787.4cd807be.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3fcae9cb.css",
-    "static/js/main.fb0ea6f1.js"
+    "static/js/main.1bf097cc.js"
   ]
 }
